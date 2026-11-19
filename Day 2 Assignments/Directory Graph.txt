@@ -1,0 +1,9 @@
+1. BFS order: C: -> Users -> Program Files -> Imtiyaz -> Public -> Java -> Documents -> Downloads
+
+2. DFS order: C: -> Users -> Imtiyaz -> Documents -> Downloads -> Java -> Public -> Program Files
+
+3. Without a "visited" check:
+   Java can be reached from Program Files and through the shortcut from Downloads.
+   The traversal would process Java more than once. In a graph containing cycles,
+   it could also keep revisiting nodes indefinitely, causing duplicate work or
+   infinite recursion/looping.
