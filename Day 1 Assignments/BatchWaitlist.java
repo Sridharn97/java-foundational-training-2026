@@ -10,7 +10,7 @@ class Main {
         System.out.println("Seats: " + Arrays.toString(seats));
         System.out.println("Waiting: " + q);
 
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < seats.length; i++) {
             if (seats[i].equals("Ravi")) {
 
                 if (!q.isEmpty()) {
