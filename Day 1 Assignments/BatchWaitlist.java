@@ -1,42 +1,29 @@
 import java.util.*;
-public class BatchWaitlist {
+
+class Main {
     public static void main(String[] args) {
-        String[] seats = new String[3];
-        Queue<String> waitlist = new LinkedList<>();
-        String[] incoming = {"Asha", "Ravi", "Meena", "Kiran", "Pooja"};
-        for (String name : incoming) {
-            boolean placed = false;
-            for (int i = 0; i < seats.length; i++) {
-                if (seats[i] == null) {
-                    seats[i] = name;
-                    placed = true;
-                    break;
-                }
-            }
-            if (!placed) {
-                waitlist.add(name);
-            }
-            System.out.println("Seats: " + Arrays.toString(seats));
-            System.out.println("Waiting: " + waitlist);
-        }
-        String drop = "Ravi";
-        boolean found = false;
-        for (int i = 0; i < seats.length; i++) {
-            if (drop.equals(seats[i])) {
-                if (!waitlist.isEmpty()) {
-                    seats[i] = waitlist.poll();
+        String seats[] = {"Asha", "Ravi", "Meena"};
+        Queue<String> q = new LinkedList<String>();
+        q.add("Kiran");
+        q.add("Pooja");
+
+        System.out.println("Seats: " + Arrays.toString(seats));
+        System.out.println("Waiting: " + q);
+
+        for (int i = 0; i < 3; i++) {
+            if (seats[i].equals("Ravi")) {
+
+                if (!q.isEmpty()) {
+                    seats[i] = q.remove();
                 } else {
                     seats[i] = null;
                 }
-                found = true;
                 break;
             }
         }
-        if (found) {
-            System.out.println("Seats: " + Arrays.toString(seats));
-            System.out.println("Waiting: " + waitlist);
-        } else {
-            System.out.println(drop + " is not in the batch");
-        }
+
+        System.out.println("After dropout:");
+        System.out.println("Seats: " + Arrays.toString(seats));
+        System.out.println("Waiting: " + q);
     }
 }
